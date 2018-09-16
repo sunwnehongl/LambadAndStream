@@ -15,6 +15,19 @@ public class User {
 	// 年龄
 	private int age;
 	
+	/***
+	 * 构造器
+	 * @param userId 用户id
+	 * @param userName 姓名
+	 * @param sex 性别
+	 * @param age 年龄
+	 */
+	public User(String userId,String userName,String sex,int age) {
+		this.userId = userId;
+		this.userName =userName;
+		this.sex = sex;
+		this.age = age;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -38,5 +51,18 @@ public class User {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "账号:"+this.userId+" 姓名:"+this.userName+" 性别"+this.sex+" 年龄"+this.age;
+	}
+	@Override
+	public boolean equals(Object o) {
+		User u = (User) o;
+		return this.getUserId().equals(u.getUserId());
+	} 
+	@Override
+	public int hashCode() {
+		return this.getUserId().hashCode();
 	}
 }
